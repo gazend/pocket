@@ -1,0 +1,35 @@
+<?php
+
+$this->form->prepare();
+
+echo $this->form()->openTag($this->form);
+
+?>
+<h3>Login</h3>
+<hr>
+<?php echo $this->flashMessenger()->render('error', array('alert', 'alert-danger'));
+echo $this->flashMessenger()->render('success', array('alert', 'alert-success'));
+?>
+
+<div class="form-group">
+    <?php echo $this->formLabel($form->get('email')); ?>
+    <div class="col-sm-5">
+        <?php echo $this->formElement($form->get('email')); ?>
+        <?php echo $this->formElementErrors($form->get('email')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <?php echo $this->formLabel($form->get('password')); ?>
+    <div class="col-sm-5">
+        <?php echo $this->formElement($form->get('password')); ?>
+        <?php echo $this->formElementErrors($form->get('password')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-5 col-sm-offset-2">
+    <?php echo $this->formElement($form->get('button')); ?>
+    </div>
+</div>
+<?php echo $this->formElement($form->get('csrf')); ?>
+<?php
+echo $this->form()->closeTag();

@@ -1,0 +1,41 @@
+<?php
+$this->headScript()
+     ->appendFile($this->basePath() . '/js/jQuery-TE/jquery-te-1.4.0.min.js');
+$this->headLink()
+    ->appendStylesheet($this->basePath() . '/js/jQuery-TE/jquery-te-1.4.0.css')
+?>
+<script>
+$(document).ready(function () {
+    $(".text-area").jqte();
+});
+</script>
+
+<?php
+echo $this->flashMessenger()->render('success', array('alert', 'alert-success'));
+/** @var \Zend\Form\FormInterface $form */
+$form = $this->form;
+
+$this->form->setAttribute('class', 'form-horizontal');
+$this->form->prepare();
+
+echo $this->form()->openTag($this->form);
+?>
+    <h3>Edit Article</h3>
+    <hr>
+    <?php foreach ($form->getElements() as $element) : ?>
+    <div class="form-group">
+        <?php echo $this->formLabel($element); ?>
+        <div class="col-sm-10">
+            <?php echo $this->formElement($element); ?>
+            <?php echo $this->formElementErrors($element); ?>
+        </div>
+    </div>
+    <?php endforeach; ?>
+    <div class="form-group">
+        <div class="col-sm-5 col-sm-offset-2">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+
+<?php
+echo $this->form()->closeTag();
