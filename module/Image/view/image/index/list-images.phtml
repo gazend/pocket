@@ -13,7 +13,7 @@ $acl = $this->getHelperPluginManager()->getServiceLocator()->get('acl');
 echo $this->flashMessenger()->render('success', array('alert', 'alert-success'));
 ?>
 
-<div class="modal fade">
+<div class="modal fade" id="gallery-modal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -24,7 +24,8 @@ echo $this->flashMessenger()->render('success', array('alert', 'alert-success'))
             <div class="modal-footer">
                 <div class="row">
                     <div class="col-xs-2">
-                        <button type="button" class="btn btn-default pull-left prev">
+                        <button type="button" class="btn btn-default pull-left prev"
+                            onclick="$.event.trigger({type: 'gallery.go-prev'});">
                             <i class="glyphicon glyphicon-chevron-left"></i>
                             Previous
                         </button>
@@ -33,7 +34,8 @@ echo $this->flashMessenger()->render('success', array('alert', 'alert-success'))
                         <p class="modal-description"></p>
                     </div>
                     <div class="col-xs-2">
-                        <button type="button" class="btn btn-primary next">
+                        <button type="button" class="btn btn-primary next"
+                                onclick="$.event.trigger({type: 'gallery.go-next'});">
                             Next
                             <i class="glyphicon glyphicon-chevron-right"></i>
                         </button>
@@ -47,38 +49,17 @@ echo $this->flashMessenger()->render('success', array('alert', 'alert-success'))
     </div>
 </div>
 <div id="links">
-   <?php foreach ($images as $image) :
-    ?>
+   <?php foreach ($images as $image) : ?>
 
-       <a href='<?php echo $this->basePath().'img/images/'.$image->getImage();?>'
+       <a href='<?php echo $this->basePath('img/images/' . $image->getImage());?>'
           class="image-a-holder"
+          data-image-id="<?php echo $image->getId(); ?>"
           data-description="<?php echo $image->getDescription(); ?>" title="<?php echo $image->getTitle();?>" data-gallery>
            <div class="col-sm-4">
                <img class="img-thumbnail image-picture"
-                    src='<?php echo $this->basePath().'img/images/'.$image->getImage();?>'>
+                    src='<?php echo $this->basePath('img/images/'.$image->getImage());?>'>
            </div>
        </a>
 
-<?php
-endforeach;
-?>
+   <?php endforeach; ?>
 </div>
-
-<script>
-    $( document ).ready(function() {
-
-
-
-        $('#blueimp-gallery .modal').modal('hide').on('shown.bs.modal', function () {
-            var description = $(this).attr('data-description');
-            $('p.modal-description').text(description);
-            $('#comments-holder').html('').html('<div class="fb-comments" ' +
-            'data-href="http://developers.facebook.com/docs/plugins/comments/" ' +
-            'data-width="750" ' +
-            'data-numposts="5" ' +
-            'data-colorscheme="light">' +
-            '</div>');
-            FB.XFBML.parse();
-        });
-    });
-</script>

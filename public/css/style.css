@@ -51,3 +51,11 @@ p.description {
     height: auto;
 }
 
+#gallery-modal .modal-dialog {
+    min-width: 60%;
+    max-width: 80%;
+}
+
+.full-size-image {
+    max-width: 100%;
+}
