@@ -3,6 +3,11 @@ body {
     padding-bottom: 40px;
 }
 
+.container {
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
 .zf-green {
     color: #68b604;
 }
@@ -36,20 +41,13 @@ div.container a.brand {
     padding: 8px 20px 12px 40px;
 }
 
-.article-picture {
-    width: 180px;
-}
-
-.article-picture-big {
-    width: 500px;
-    float: left;
-    margin-right: 10px; margin-bottom: 10px;
-
-}
-.article-text {
-
-}
 p.description {
     font-style: italic; 
     font-size: 15px;
 }
+
+.image-thumb {
+    width: 60px;
+    height: auto;
+}
+

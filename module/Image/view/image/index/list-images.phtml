@@ -1,0 +1,84 @@
+<script>
+$(document).ready(function () {
+    $('.delete-confrm').on('click', function () {
+        return confirm('Are you sure you want to delete this image?');
+    });
+});
+</script>
+<?php
+/** @var \Image\Entity\Image[] $images */
+$images = $this->images;
+/** @var \Zend\Permissions\Acl\AclInterface $acl */
+$acl = $this->getHelperPluginManager()->getServiceLocator()->get('acl');
+echo $this->flashMessenger()->render('success', array('alert', 'alert-success'));
+?>
+
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body next"></div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <button type="button" class="btn btn-default pull-left prev">
+                            <i class="glyphicon glyphicon-chevron-left"></i>
+                            Previous
+                        </button>
+                    </div>
+                    <div class="col-xs-8">
+                        <p class="modal-description"></p>
+                    </div>
+                    <div class="col-xs-2">
+                        <button type="button" class="btn btn-primary next">
+                            Next
+                            <i class="glyphicon glyphicon-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row" id="comments-holder">
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="links">
+   <?php foreach ($images as $image) :
+    ?>
+
+       <a href='<?php echo $this->basePath().'img/images/'.$image->getImage();?>'
+          class="image-a-holder"
+          data-description="<?php echo $image->getDescription(); ?>" title="<?php echo $image->getTitle();?>" data-gallery>
+           <div class="col-sm-4">
+               <img class="img-thumbnail image-picture"
+                    src='<?php echo $this->basePath().'img/images/'.$image->getImage();?>'>
+           </div>
+       </a>
+
+<?php
+endforeach;
+?>
+</div>
+
+<script>
+    $( document ).ready(function() {
+
+
+
+        $('#blueimp-gallery .modal').modal('hide').on('shown.bs.modal', function () {
+            var description = $(this).attr('data-description');
+            $('p.modal-description').text(description);
+            $('#comments-holder').html('').html('<div class="fb-comments" ' +
+            'data-href="http://developers.facebook.com/docs/plugins/comments/" ' +
+            'data-width="750" ' +
+            'data-numposts="5" ' +
+            'data-colorscheme="light">' +
+            '</div>');
+            FB.XFBML.parse();
+        });
+    });
+</script>

@@ -23,12 +23,12 @@ class Acl extends ZendAcl
              ->addResource('logout')
              ->addResource('register')
              ->addResource('change_password')
-             ->addResource('articles');
+             ->addResource('images');
 
         $this->allow('guest', array('home', 'register', 'login'));
-        $this->allow('guest', 'articles', 'read');
+        $this->allow('guest', 'images', 'read');
 
         $this->allow('member', array('home', 'logout', 'change_password'));
-        $this->allow('member', 'articles', null, $memberIsOwnerAssert);
+        $this->allow('member', 'images', null, $memberIsOwnerAssert);
     }
 }

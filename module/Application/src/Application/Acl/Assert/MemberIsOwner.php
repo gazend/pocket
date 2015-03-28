@@ -2,7 +2,7 @@
 
 namespace Application\Acl\Assert;
 
-use Application\Acl\Resource\Article;
+use Application\Acl\Resource\Image;
 use User\Entity\User;
 use Zend\Permissions\Acl\Acl;
 use Zend\Permissions\Acl\Assertion\AssertionInterface;
@@ -45,17 +45,17 @@ class MemberIsOwner implements AssertionInterface
             return true;
         }
 
-        if (!$resource instanceof Article) {
+        if (!$resource instanceof Image) {
             return false;
         }
 
-        if (!$resource->hasArticle()) {
+        if (!$resource->hasImage()) {
             return false;
         }
 
-        $article = $resource->getArticle();
+        $image = $resource->getImage();
 
-        if ($article->getUser()->getId() == $this->user->getId()) {
+        if ($this->user->getId()) {
             return true;
         }
 

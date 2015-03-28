@@ -6,7 +6,7 @@ return array(
             'login' => array(
                 'type' => 'literal',
                 'options' => array(
-                    'route' => '/login',
+                    'route' => '/admin',
                     'defaults' => array(
                         'controller' => 'User\Controller\Index',
                         'action' => 'login'

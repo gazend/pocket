@@ -16,7 +16,16 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel();
+        /** @var ImagesRepository $imagesRepository */
+        $imagesRepository = $this->serviceLocator->get('Image\Model\ImagesRepository');
+
+        /** @var Form $form */
+        $form = $this->serviceLocator->get('Image\Form\NewImage');
+        $form->setAttribute('action', $this->url()->fromRoute('add-image'));
+
+        return ['images' => $imagesRepository->listImages(),
+                'form' => $form
+               ];
     }
 
     public function loggedinAction()

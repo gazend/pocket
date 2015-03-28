@@ -35,9 +35,9 @@ class IndexController extends AbstractActionController
                 $authRes = $authService->authenticate();
 
                 if($authRes->isValid()) {
-                    $this->redirect()->toRoute('articles');
+                    $this->redirect()->toRoute('home');
                     $this->flashMessenger()->addSuccessMessage(
-                        sprintf('Hello %s! Welcome to your Blog site!',
+                        sprintf('Hello %s! Welcome to your Pocket site!',
                             $authService->getIdentity()->getName()));
                 } else {
                     $this->flashMessenger()->addErrorMessage('Wrong username or password!');
@@ -64,7 +64,7 @@ class IndexController extends AbstractActionController
                 $userCreator = $this->serviceLocator->get('User\Model\UserCreator');
                 $userCreator->registerWithForm($form);
                 $this->flashMessenger()->addSuccessMessage($form->get('name')->getValue().'Welcome to you Blog site!');
-                return $this->redirect()->toRoute('articles');
+                return $this->redirect()->toRoute('images');
 
             }
         }
@@ -88,7 +88,7 @@ class IndexController extends AbstractActionController
                 $passwordChanger = $this->serviceLocator->get('User\Model\PasswordChanger');
                 $passwordChanger->changeUserPassword($user, $form->get('new-password')->getValue());
                 $this->flashMessenger()->addSuccessMessage('Password changed successfully!');
-                return $this->redirect()->toRoute('articles');
+                return $this->redirect()->toRoute('images');
 
             }
             //var_dump($form->getMessages());die;
