@@ -11,8 +11,7 @@
         var galleryModal = $('#gallery-modal');
 
         $('#links a').on('click', function () {
-            var $this = this,
-                image = $(this).attr('href');
+            var image = $(this).attr('href');
 
             nextImage = $(this).next('a');
             prevImage = $(this).prev('a');
@@ -33,7 +32,7 @@
             var description = $(this).attr('data-description');
             $('p.modal-description', galleryModal).text(description);
 
-            $.event.trigger({type: 'gallery.image-shown'}, [$this.attr('data-image-id')]);
+            $.event.trigger({type: 'gallery.image-shown'}, [$(this).attr('data-image-id')]);
 
             return false;
         });
