@@ -1,7 +1,20 @@
 <script>
 $(document).ready(function () {
+
     $('.delete-confrm').on('click', function () {
         return confirm('Are you sure you want to delete this image?');
+    });
+
+
+    <?php if (!empty($this->imageId)) : ?>
+
+    $('a[data-image-id=<?php echo $this->imageId; ?>]').click();
+
+    <?php endif; ?>
+});
+$(window).load(function () {
+    $('#links').collagePlus({
+        'targetHeight': 200
     });
 });
 </script>
@@ -48,18 +61,13 @@ echo $this->flashMessenger()->render('success', array('alert', 'alert-success'))
         </div>
     </div>
 </div>
-<div id="links">
+<div id="links" class="Collage">
    <?php foreach ($images as $image) : ?>
 
-       <a href='<?php echo $this->basePath('img/images/' . $image->getImage());?>'
-          class="image-a-holder"
-          data-image-id="<?php echo $image->getId(); ?>"
-          data-description="<?php echo $image->getDescription(); ?>" title="<?php echo $image->getTitle();?>" data-gallery>
-           <div class="col-sm-4">
-               <img class="img-thumbnail image-picture"
-                    src='<?php echo $this->basePath('img/images/'.$image->getImage());?>'>
-           </div>
-       </a>
+   <img data-image-id="<?php echo $image->getId(); ?>"
+       data-description="<?php echo $image->getDescription(); ?>"
+       title="<?php echo $image->getTitle();?>"
+       src="<?php echo $this->basePath('img/images/'.$image->getImage());?>">
 
    <?php endforeach; ?>
 </div>

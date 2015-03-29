@@ -22,6 +22,7 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
 
     <!-- Scripts -->
     <?php echo $this->headScript()
+        ->prependFile($this->basePath() . '/js/jquery.collagePlus.min.js')
         ->prependFile($this->basePath() . '/js/bootstrap.min.js')
         ->prependFile($this->basePath() . '/js/jquery.min.js')
         ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
@@ -30,6 +31,9 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
 
 </head>
 <body>
+<input type="hidden"
+       value="<?php echo 'http://' . $_SERVER['SERVER_NAME'] . $this->basePath(); ?>"
+       id="server_name">
 <div id="fb-root"></div>
 <script>
 

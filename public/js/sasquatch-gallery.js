@@ -10,8 +10,8 @@
 
         var galleryModal = $('#gallery-modal');
 
-        $('#links a').on('click', function () {
-            var image = $(this).attr('href');
+        $('#links img').on('click', function () {
+            var image = $(this).attr('src');
 
             nextImage = $(this).next('a');
             prevImage = $(this).prev('a');
@@ -41,10 +41,12 @@
 
     $(document).on('gallery.image-shown', function (e, imageId) {
 
+        var href = $('#server_name').val() + '/photo/' + imageId;
+
         $('#comments-holder').html('').html('<div class="fb-comments" ' +
-        'data-href="http://developers.facebook.com/docs/plugins/comments/" ' +
         'data-width="750" ' +
         'data-numposts="5" ' +
+        'data-href="' + href + '"' +
         'data-colorscheme="light">' +
         '</div>');
 
@@ -54,13 +56,15 @@
     });
 
     $(document).on('gallery.go-next', function () {
+        var id = nextImage.attr('data-image-id');
         nextImage.click();
-        $.event.trigger({type: 'gallery.image-shown'}, [nextImage.attr('data-image-id')]);
+        $.event.trigger({type: 'gallery.image-shown'}, [id]);
     });
 
     $(document).on('gallery.go-prev', function () {
+        var id = prevImage.attr('data-image-id');
         prevImage.click();
-        $.event.trigger({type: 'gallery.image-shown'}, [prevImage.attr('data-image-id')]);
+        $.event.trigger({type: 'gallery.image-shown'}, [id]);
     });
 
 })(window.jQuery);

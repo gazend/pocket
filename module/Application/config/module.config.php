@@ -60,6 +60,17 @@ return array(
                     ),
                 ),
             ),
+            'photo-view' => array(
+                'type' => 'segment',
+                'options' => array(
+                    'route' => '/photo/:id',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Index',
+                        'action' => 'index',
+                        'view-photo' => true
+                    ),
+                ),
+            ),
         ),
     ),
     'service_manager' => array(

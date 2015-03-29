@@ -9,8 +9,9 @@
 
 namespace Application\Controller;
 
+use Image\Model\ImagesRepository;
+use Zend\Form\Form;
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
@@ -23,9 +24,19 @@ class IndexController extends AbstractActionController
         $form = $this->serviceLocator->get('Image\Form\NewImage');
         $form->setAttribute('action', $this->url()->fromRoute('add-image'));
 
-        return ['images' => $imagesRepository->listImages(),
-                'form' => $form
-               ];
+        $response = [
+            'images' => $imagesRepository->listImages(),
+            'form' => $form,
+        ];
+
+        $isPhotoViewMode = (boolean) $this->params()->fromRoute('view-photo', false);
+
+        if ($isPhotoViewMode) {
+            $imageId = $this->params()->fromRoute('id');
+            $response['imageId'] = $imageId;
+        }
+
+        return $response;
     }
 
     public function loggedinAction()
