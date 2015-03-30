@@ -54,7 +54,7 @@ class IndexController extends AbstractActionController
     public function registerAction()
     {
         /** @var \Zend\Form\Form $form */
-        $form = $this->serviceLocator->get('User\Form\Register');
+       // $form = $this->serviceLocator->get('User\Form\Register');
 
         if($this->request->isPost()){
             $data = $this->getRequest()->getPost();
@@ -68,7 +68,7 @@ class IndexController extends AbstractActionController
 
             }
         }
-        return ['form' => $form];
+      //  return ['form' => $form];
     }
 
     public function passwordChangeAction()

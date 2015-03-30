@@ -23,6 +23,7 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
         ->appendStylesheet($this->basePath() . '/css/font-awesome.min.css')
         ->appendStylesheet($this->basePath() . '/css/animate.css')
         ->appendStylesheet($this->basePath() . '/css/bootstrap-select.min.css')
+        ->appendStylesheet($this->basePath() . '/css/bootstrap-social.css')
     ; ?>
 
     <!-- Scripts -->
@@ -44,7 +45,7 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
 
 <header class="site-header">
     <div class="row header-wrap">
-        <div class="col-sm-5 header-box">
+        <div class="col-sm-3 header-box">
             <div id="main-menu" class="main-menu">
                 <ul>
                     <li>
@@ -83,13 +84,15 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
             </div>
         </div><!-- .header-box -->
 
-        <div class="col-sm-2 header-box logo-box text-center">
+        <div class="col-sm-6 header-box logo-box text-center">
             <a href="<?php echo $this->url('home') ?>"><img src="img/logo.svg" width="68" height="57" alt=""></a>
         </div><!-- .header-box -->
 
-        <div class="col-sm-5 header-box text-right hidden-xs">
+        <div class="col-sm-3 header-box instagram-button-header">
             <!-- demonstration - http://keith-wood.name/countdownRef.html -->
-
+            <a class="btn btn-social-icon btn-instagram">
+                <i class="fa fa-instagram"></i>
+            </a>
         </div><!-- .header-box -->
     </div>
 </header><!-- .site-header -->
@@ -142,10 +145,10 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
         <div class="container-fluid text-center">
             <div class="copyright">&copy; <?php echo date('Y') ?> by Dessy <?php echo $this->translate('All rights reserved.') ?></div>
             <div class="social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-google-plus"></i></a>
-                <a href="#"><i class="fa fa-behance"></i></a>
+                <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+                <a href="plus.google.com"><i class="fa fa-google-plus"></i></a>
+                <a href="https://www.facebook.com"><i class="fa fa-behance"></i></a>
             </div>
         </div>
     </footer><!-- .site-footer -->

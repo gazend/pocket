@@ -30,7 +30,7 @@ echo $this->flashMessenger()->render('success', array('alert', 'alert-success'))
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" aria-hidden="true">&times;</button>
+
                 <h4 class="modal-title"></h4>
             </div>
             <div class="modal-body next"></div>
@@ -43,6 +43,9 @@ echo $this->flashMessenger()->render('success', array('alert', 'alert-success'))
                         </button>
                     </div>
                     <div class="col-xs-8">
+                        <p class="modal-author"></p>
+                        <p class="modal-country"></p>
+                        <p class="modal-occupation"></p>
                         <p class="modal-description"></p>
                     </div>
                     <div class="col-xs-2">
@@ -64,7 +67,9 @@ echo $this->flashMessenger()->render('success', array('alert', 'alert-success'))
 
    <img data-image-id="<?php echo $image->getId(); ?>"
        data-description="<?php echo $image->getDescription(); ?>"
-       title="<?php echo $image->getAuthor();?>"
+       data-country="<?php echo $image->getCountry(); ?>"
+       data-occupation="<?php echo $image->getOccupation(); ?>"
+       data-author="<?php echo $image->getAuthor();?>"
        src="<?php echo $this->basePath('img/images/'.$image->getImage());?>">
 
    <?php endforeach; ?>

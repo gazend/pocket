@@ -2580,3 +2580,22 @@ body {
   margin-left: 12px;
   opacity: 1;
 }
+
+.modal-author, .modal-country, .modal-occupation, .modal-description {
+  text-align: center;
+  font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+  line-height: normal;
+  font-size: 20px;
+}
+
+#comments-holder {
+  text-align: center;
+}
+
+.instagram-button-header {
+  vertical-align: middle;
+  text-align: center;
+
+}
+
+

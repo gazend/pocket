@@ -29,8 +29,17 @@
             '</div>');
             galleryModal.modal('show');
 
+            var author = $(this).attr('data-author');
+            $('p.modal-author', galleryModal).html('<b><span class="image-labels">Name:&nbsp</span></b>' + author);
+
+            var country = $(this).attr('data-country');
+            $('p.modal-country', galleryModal).html('<b><span class="image-labels">Country:&nbsp</span></b>' + country);
+
+            var occupation = $(this).attr('data-occupation');
+            $('p.modal-occupation', galleryModal).html('<b><span class="image-labels">Occupation:&nbsp</span></b>' + occupation);
+
             var description = $(this).attr('data-description');
-            $('p.modal-description', galleryModal).text(description);
+            $('p.modal-description', galleryModal).html('<b><span class="image-labels">Description:&nbsp</span></b>' + description);
 
             $.event.trigger({type: 'gallery.image-shown'}, [$(this).attr('data-image-id')]);
 
