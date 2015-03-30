@@ -43,7 +43,7 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" >
     <div class="row header-wrap">
         <div class="col-sm-4 header-box">
             <div id="main-menu" class="main-menu">
@@ -84,8 +84,8 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
             </div>
         </div><!-- .header-box -->
 
-        <div class="col-sm-6 header-box logo-box text-center">
-            <a href="<?php echo $this->url('home') ?>"><img src="img/logo.svg" width="68" height="57" alt=""></a>
+        <div class="col-sm-6 header-box text-center" style="vertical-align: middle;">
+            <a href="<?php echo $this->url('home') ?>"><h3 class="site-title">what do we have in our pockets?</h3></a>
         </div><!-- .header-box -->
 
         <div class="col-sm-2 header-box instagram-button-header">
@@ -114,7 +114,7 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
 </script>
 <?php if ($auth->hasIdentity()): ?>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container" style="margin-top: 10px;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -138,7 +138,7 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
     <hr style="margin-top: 35px">
 
     <?php echo $this->content; ?>
-
+<div class="row">
     <hr>
 </div>
     <footer class="site-footer">

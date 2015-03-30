@@ -2595,7 +2595,12 @@ body {
 .instagram-button-header {
   vertical-align: middle;
   text-align: center;
+}
 
+.site-title {
+  color: #505050;
+  text-shadow:  0 2px 2px ;
+  vertical-align: middle !important;
 }
 
 
