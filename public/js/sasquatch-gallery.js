@@ -13,15 +13,15 @@
         $('#links img').on('click', function () {
             var image = $(this).attr('src');
 
-            nextImage = $(this).next('a');
-            prevImage = $(this).prev('a');
+            nextImage = $(this).next('img');
+            prevImage = $(this).prev('img');
 
             if (!nextImage.length) {
-                nextImage = $(this).parent().find('a:first');
+                nextImage = $(this).parent().find('img:first');
             }
 
             if (!prevImage.length) {
-                prevImage = $(this).parent().find('a:last');
+                prevImage = $(this).parent().find('img:last');
             }
 
             galleryModal.find('.modal-body').html('<div style="text-align: center">' +
@@ -58,13 +58,11 @@
     $(document).on('gallery.go-next', function () {
         var id = nextImage.attr('data-image-id');
         nextImage.click();
-        $.event.trigger({type: 'gallery.image-shown'}, [id]);
     });
 
     $(document).on('gallery.go-prev', function () {
         var id = prevImage.attr('data-image-id');
         prevImage.click();
-        $.event.trigger({type: 'gallery.image-shown'}, [id]);
     });
 
 })(window.jQuery);
