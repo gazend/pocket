@@ -45,7 +45,7 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
 
 <header class="site-header" >
     <div class="row header-wrap">
-        <div class="col-sm-4 header-box">
+        <div class="col-sm-5 header-box">
             <div id="main-menu" class="main-menu">
                 <ul>
                     <li>
@@ -84,11 +84,11 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
             </div>
         </div><!-- .header-box -->
 
-        <div class="col-sm-6 header-box text-center" style="vertical-align: middle;">
-            <a href="<?php echo $this->url('home') ?>"><h3 class="site-title">what do we have in our pockets?</h3></a>
+        <div class="col-sm-3 header-box header-box logo-box text-center">
+            <a href="<?php echo $this->url('home') ?>"><img  class="img-responsive" src="<?php echo $this->basePath() . '/img/pocket-logo.png' ;?>" alt="pocket image"></a>
         </div><!-- .header-box -->
 
-        <div class="col-sm-2 header-box instagram-button-header">
+        <div class="col-sm-4 header-box instagram-button-header">
             <!-- demonstration - http://keith-wood.name/countdownRef.html -->
             <a class="btn btn-social-icon btn-instagram">
                 <i class="fa fa-instagram"></i>
