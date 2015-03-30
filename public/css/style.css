@@ -6,6 +6,7 @@ body {
 .container {
     margin: 0 auto;
     max-width: 1600px;
+    font-family: "Raleway",sans-serif;
 }
 
 .zf-green {
@@ -75,4 +76,9 @@ p.description {
 
 .full-size-image {
     max-width: 100%;
+}
+
+.btn-gallery-nav {
+    padding-left: 17px;
+    padding-right: 17px;
 }

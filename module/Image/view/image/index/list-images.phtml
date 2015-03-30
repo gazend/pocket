@@ -37,19 +37,17 @@ echo $this->flashMessenger()->render('success', array('alert', 'alert-success'))
             <div class="modal-footer">
                 <div class="row">
                     <div class="col-xs-2">
-                        <button type="button" class="btn btn-default pull-left prev"
+                        <button type="button" class="btn btn-default pull-left prev btn-gallery-nav"
                             onclick="$.event.trigger({type: 'gallery.go-prev'});">
                             <i class="glyphicon glyphicon-chevron-left"></i>
-                            Previous
                         </button>
                     </div>
                     <div class="col-xs-8">
                         <p class="modal-description"></p>
                     </div>
                     <div class="col-xs-2">
-                        <button type="button" class="btn btn-primary next"
+                        <button type="button" class="btn btn-default next btn-gallery-nav"
                                 onclick="$.event.trigger({type: 'gallery.go-next'});">
-                            Next
                             <i class="glyphicon glyphicon-chevron-right"></i>
                         </button>
                     </div>
