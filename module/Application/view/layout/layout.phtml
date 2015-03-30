@@ -18,10 +18,11 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
         ->prependStylesheet('http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css')
         ->prependStylesheet($this->basePath() . '/css/bootstrap-image-gallery.min.css')
-        ->appendStylesheet($this->basePath() . '/css/bootstrap-select.min.css')
         ->appendStylesheet($this->basePath() . '/css/triada-style.css')
         ->appendStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
         ->appendStylesheet($this->basePath() . '/css/font-awesome.min.css')
+        ->appendStylesheet($this->basePath() . '/css/animate.css')
+        ->appendStylesheet($this->basePath() . '/css/bootstrap-select.min.css')
     ; ?>
 
     <!-- Scripts -->
@@ -29,13 +30,14 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
         ->prependFile($this->basePath() . '/js/jquery.collagePlus.min.js')
         ->prependFile($this->basePath() . '/js/bootstrap.min.js')
         ->prependFile($this->basePath() . '/js/jquery.min.js')
-        ->prependFile($this->basePath() . '/js/bootstrap-select.min.js')
-        ->prependFile($this->basePath() . '/js/jquery.ajaxchimp.min.js')
-        ->prependFile($this->basePath() . '/js/included-plagins.js')
         ->prependFile($this->basePath() . '/js/main.js')
         ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
         ->prependFile($this->basePath() . '/js/html5shiv.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-        ->appendFile($this->basePath() . '/js/sasquatch-gallery.js'); ?>
+        ->appendFile($this->basePath() . '/js/sasquatch-gallery.js')
+        ->prependFile($this->basePath() . '/js/bootstrap-select.min.js')
+        ->prependFile($this->basePath() . '/js/jquery.ajaxchimp.min.js')
+        ->prependFile($this->basePath() . '/js/included-plagins.js')
+    ; ?>
 
 </head>
 <body>
@@ -46,7 +48,7 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
             <div id="main-menu" class="main-menu">
                 <ul>
                     <li>
-                        <a href="#about">
+                        <a href="<?php echo $this->url('about') ?>">
 							<span class="hidden-xs hidden-sm">
 								<i class="hover-label">About</i>
 								About
@@ -62,7 +64,7 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
                         </a>
                     </li><!--
 					--><li>
-                        <a href="#contact">
+                        <a href="<?php echo $this->url('contact') ?>">
 							<span class="hidden-xs hidden-sm">
 								<i class="hover-label">Contact</i>
 								Contact
@@ -82,7 +84,7 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
         </div><!-- .header-box -->
 
         <div class="col-sm-2 header-box logo-box text-center">
-            <a href="index.html"><img src="img/logo.svg" width="68" height="57" alt=""></a>
+            <a href="<?php echo $this->url('home') ?>"><h4>what do we have in our pockets?</h4></a>
         </div><!-- .header-box -->
 
         <div class="col-sm-5 header-box text-right hidden-xs">
@@ -135,7 +137,7 @@ $auth = $this->getHelperPluginManager()->getServiceLocator()->get('auth');
     <?php echo $this->content; ?>
 
     <hr>
-
+</div>
     <footer class="site-footer">
         <div class="container-fluid text-center">
             <div class="copyright">&copy; <?php echo date('Y') ?> by Dessy <?php echo $this->translate('All rights reserved.') ?></div>

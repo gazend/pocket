@@ -64,7 +64,7 @@ echo $this->flashMessenger()->render('success', array('alert', 'alert-success'))
 
    <img data-image-id="<?php echo $image->getId(); ?>"
        data-description="<?php echo $image->getDescription(); ?>"
-       title="<?php echo $image->getTitle();?>"
+       title="<?php echo $image->getAuthor();?>"
        src="<?php echo $this->basePath('img/images/'.$image->getImage());?>">
 
    <?php endforeach; ?>

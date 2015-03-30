@@ -48,4 +48,12 @@ class IndexController extends AbstractActionController
     {
 
     }
+
+    public function aboutAction() {
+
+    }
+
+    public function contactAction() {
+
+    }
 }

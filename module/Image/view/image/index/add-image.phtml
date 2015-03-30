@@ -18,20 +18,26 @@ $this->form->prepare();
 
 echo $this->form()->openTag($this->form);
 ?>
-    <h3>Add Image</h3>
+
+    <h4>INSTRUCTIONS</h4>
+    <p class="instructions">+ Take out the content of your pockets.</p>
+    <p class="instructions">+ Photograph it on a plain surface of your choice.</p>
+    <p class="instructions">+ Write up to 100 words about the contents of your pockets.</p>
+    <p class="instructions">+ Submit </p>
+
     <hr>
     <?php foreach ($form->getElements() as $element) : ?>
     <div class="form-group">
         <?php echo $this->formLabel($element); ?>
-        <div class="col-sm-6">
+        <div class="col-sm-8">
             <?php echo $this->formElement($element); ?>
             <?php echo $this->formElementErrors($element); ?>
         </div>
     </div>
     <?php endforeach; ?>
     <div class="form-group">
-        <div class="col-sm-5 col-sm-offset-2">
-            <button type="submit" class="btn btn-primary">Save</button>
+        <div class="col-sm-5 col-sm-offset-3">
+            <button type="submit" class="btn btn-default">Submit</button>
         </div>
     </div>
 

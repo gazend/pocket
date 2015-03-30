@@ -26,26 +26,6 @@ class Image
     private $id;
 
     /**
-     * Image Title
-     *
-     * @Annotation\Type("Zend\Form\Element\Text")
-     *
-     * @Annotation\Filter({"name":"StringTrim"})
-     * @Annotation\Filter({"name": "StripTags"})
-     *
-     * @Annotation\Options({"label":"Image Title:",
-     * "label_attributes":{"class":"col-sm-2 control-label"}})
-     * @Annotation\Attributes(
-     *  {"type":"text","required": true,"class": "form-control",
-     *  "placeholder": "Image Title"})
-     *
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=45, nullable=true)
-     */
-    private $title;
-
-    /**
      * Image Author
      *
      * @Annotation\Type("Zend\Form\Element\Text")
@@ -53,17 +33,57 @@ class Image
      * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Filter({"name": "StripTags"})
      *
-     * @Annotation\Options({"label":"Author:",
-     * "label_attributes":{"class":"col-sm-2 control-label"}})
+     * @Annotation\Options({"label":"Name:",
+     * "label_attributes":{"class":"col-sm-3 control-label"}})
      * @Annotation\Attributes(
      *  {"type":"text","required": true,"class": "form-control",
-     *  "placeholder": "Author"})
+     *  "placeholder": "Name"})
      *
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=45, nullable=true)
      */
     private $author;
+
+    /**
+     * Image Country
+     *
+     * @Annotation\Type("Zend\Form\Element\Text")
+     *
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Filter({"name": "StripTags"})
+     *
+     * @Annotation\Options({"label":"Country:",
+     * "label_attributes":{"class":"col-sm-3 control-label"}})
+     * @Annotation\Attributes(
+     *  {"type":"text","required": false,"class": "form-control",
+     *  "placeholder": "Country"})
+     *
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=45, nullable=true)
+     */
+    private $country;
+
+    /**
+     * Image Occupation
+     *
+     * @Annotation\Type("Zend\Form\Element\Text")
+     *
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Filter({"name": "StripTags"})
+     *
+     * @Annotation\Options({"label":"Occupation:",
+     * "label_attributes":{"class":"col-sm-3 control-label"}})
+     * @Annotation\Attributes(
+     *  {"type":"text","required": true,"class": "form-control",
+     *  "placeholder": "Occupation"})
+     *
+     * @var string
+     *
+     * @ORM\Column(name="occupation", type="string", length=45, nullable=true)
+     */
+    private $occupation;
 
     /**
      * Image description
@@ -73,11 +93,11 @@ class Image
      * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Filter({"name":"StripTags"})
      *
-     * @Annotation\Options({"label":"Text:",
-     * "label_attributes":{"class":"col-sm-2 control-label"}})
+     * @Annotation\Options({"label":"Description:",
+     * "label_attributes":{"class":"col-sm-3 control-label"}})
      * @Annotation\Attributes(
      *  {"type":"textarea","required": false,"class": "form-control",
-     *  "placeholder": "Text", "rows": 5, "cols": 10})
+     *  "placeholder": "Description", "rows": 5, "cols": 10})
      *
      * @var string
      *
@@ -96,7 +116,7 @@ class Image
      * @Annotation\Validator({"name":"filesize", "options": {"max": "2097152"}})
      * @Annotation\Validator({"name": "fileextension", "options":{"extension": "png,jpg,jpeg,gif"}})
      * @Annotation\Filter({"name": "filerenameupload", "options": {"target": "public/img/images/image.jpg","randomize": true}})
-     * @Annotation\Options({"label":"Select Image:", "label_attributes":{"class":"col-sm-2 control-label"}})
+     * @Annotation\Options({"label":"Image:", "label_attributes":{"class":"col-sm-3 control-label"}})
      * @Annotation\Attributes({"class": ""})
      *
      * @ORM\Column(name="image", type="string", length=100, nullable=true)
@@ -178,6 +198,28 @@ class Image
     }
 
     /**
+     * Setter for $country
+     *
+     * @param string $country
+     * @return Image Provides fluent interface
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+        return $this;
+    }
+
+    /**
+     * Getter for $country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
      * Setter for $author
      *
      * @param string $author
@@ -194,31 +236,31 @@ class Image
      *
      * @return string
      */
-    public function getText()
+    public function getAuthor()
     {
         return $this->author;
     }
 
     /**
-     * Setter for $title
+     * Setter for $occupation
      *
-     * @param string $title
+     * @param string $occupation
      * @return Image Provides fluent interface
      */
-    public function setTitle($title)
+    public function setTitle($occupation)
     {
-        $this->title = $title;
+        $this->occupation = $occupation;
         return $this;
     }
 
     /**
-     * Getter for $title
+     * Getter for $occupation
      *
      * @return string
      */
-    public function getTitle()
+    public function getOccupation()
     {
-        return $this->title;
+        return $this->occupation;
     }
 
 }
