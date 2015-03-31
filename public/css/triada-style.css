@@ -1852,7 +1852,7 @@ body {
 }
 /* line 26, ../sass/_content.scss */
 .section-title:before {
-  background: url(../img/svg/title-icon.svg), no-repeat 50% 50%;
+
   bottom: 0;
   content: "";
   display: block;
