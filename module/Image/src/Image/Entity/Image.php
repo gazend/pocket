@@ -247,7 +247,7 @@ class Image
      * @param string $occupation
      * @return Image Provides fluent interface
      */
-    public function setTitle($occupation)
+    public function setOccupation($occupation)
     {
         $this->occupation = $occupation;
         return $this;
