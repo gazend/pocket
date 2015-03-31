@@ -112,7 +112,7 @@ class Image
      *
      * @Annotation\Type("Zend\Form\Element\File")
      *
-     * @Annotation\Required(false)
+     * @Annotation\Required(true)
      * @Annotation\Validator({"name":"filesize", "options": {"max": "2097152"}})
      * @Annotation\Validator({"name": "fileextension", "options":{"extension": "png,jpg,jpeg,gif"}})
      * @Annotation\Filter({"name": "filerenameupload", "options": {"target": "public/img/images/image.jpg","randomize": true}})
