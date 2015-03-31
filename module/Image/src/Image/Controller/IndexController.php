@@ -127,7 +127,7 @@ class IndexController extends AbstractActionController
             return $this->redirect()->toRoute('error');
         }
 
-        $this->flashMessenger()->addSuccessMessage('Image "' . $image->getTitle() . '" removed!');
+        $this->flashMessenger()->addSuccessMessage('Image "' . $image->getAuthor() . '" removed!');
         $imagesRepository->delete($image);
         return $this->redirect()->toRoute('images');
     }

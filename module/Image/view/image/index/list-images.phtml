@@ -72,5 +72,16 @@ echo $this->flashMessenger()->render('success', array('alert', 'alert-success'))
        data-author="<?php echo $image->getAuthor();?>"
        src="<?php echo $this->basePath('img/images/'.$image->getImage());?>">
 
+       <?php if ($acl->isAllowed($this->aclRole(), new \Application\Acl\Resource\Image($image), 'modify')) : ?>
+           <a href="<?php echo $this->url('update-image', ['id' => $image->getId()]) ?>"
+              class="btn btn-sm btn-primary">
+               <i class="glyphicon glyphicon-edit"></i>
+           </a>
+           <a href="<?php echo $this->url('delete-image', ['id' => $image->getId()]) ?>"
+              class="btn btn-sm btn-danger delete-confrm">
+               <i class="glyphicon glyphicon-trash"></i>
+           </a>
+       <?php endif; ?>
+
    <?php endforeach; ?>
 </div>
